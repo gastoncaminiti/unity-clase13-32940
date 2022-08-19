@@ -21,6 +21,10 @@ public class PlayerCollision : MonoBehaviour
             Destroy(other.gameObject);
             //sumar vida
             playerData.Healing(other.gameObject.GetComponent<Pumpkin>().HealPoints);
+
+            //SUMAS SCORE
+            GameManager.Score++;
+            Debug.Log(GameManager.Score);
         }
 
         if (other.gameObject.CompareTag("Munitions"))
@@ -32,6 +36,10 @@ public class PlayerCollision : MonoBehaviour
             {
                 Debug.Log("GAME OVER");
             }
+
+            //RESTAS SCORE
+            GameManager.Score--;
+            Debug.Log(GameManager.Score);
         }
 
         if (other.gameObject.CompareTag("Floor"))

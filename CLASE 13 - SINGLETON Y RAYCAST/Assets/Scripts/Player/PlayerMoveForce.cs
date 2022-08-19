@@ -37,6 +37,7 @@ public class PlayerMoveForce : MonoBehaviour
     void Start()
     {
         MyRigidbody = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
@@ -103,7 +104,7 @@ public class PlayerMoveForce : MonoBehaviour
             por lo tanto, originan movimientos uniformes 
             acelerando la rigibody con un impulso.
             */
-            MyRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            MyRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Acceleration);
             inDelayJump = true;
             Invoke("DelayNextJump", delayNextJump);
         }
